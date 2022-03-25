@@ -147,7 +147,8 @@ class DynamicRegistration {
     return {
       script: '<script>(window.opener || window.parent).postMessage({subject:"org.imsglobal.lti.close"}, "*");</script>',
       clientId: registrationResponse.client_id,
-      issuer: configuration.issuer
+      issuer: configuration.issuer,
+      platformName: platformName
     }
   }
 }
