@@ -6,6 +6,10 @@ var _classPrivateFieldGet2 = _interopRequireDefault(require("@babel/runtime/help
 
 var _classPrivateFieldSet2 = _interopRequireDefault(require("@babel/runtime/helpers/classPrivateFieldSet"));
 
+function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
+
+function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
+
 /* Provider Deep Linking Service */
 const jwt = require('jsonwebtoken');
 
@@ -19,17 +23,17 @@ var _Database = /*#__PURE__*/new WeakMap();
 
 class DeepLinking {
   constructor(getPlatform, ENCRYPTIONKEY, Database) {
-    _getPlatform.set(this, {
+    _classPrivateFieldInitSpec(this, _getPlatform, {
       writable: true,
       value: null
     });
 
-    _ENCRYPTIONKEY.set(this, {
+    _classPrivateFieldInitSpec(this, _ENCRYPTIONKEY, {
       writable: true,
       value: ''
     });
 
-    _Database.set(this, {
+    _classPrivateFieldInitSpec(this, _Database, {
       writable: true,
       value: void 0
     });

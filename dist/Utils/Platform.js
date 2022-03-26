@@ -6,6 +6,10 @@ var _classPrivateFieldGet2 = _interopRequireDefault(require("@babel/runtime/help
 
 var _classPrivateFieldSet2 = _interopRequireDefault(require("@babel/runtime/helpers/classPrivateFieldSet"));
 
+function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
+
+function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
+
 // Utis
 const Auth = require('./Auth');
 
@@ -48,52 +52,52 @@ class Platform {
      * @param {Object} _authConfig - Authentication configurations for the platform.
      */
   constructor(name, platformUrl, clientId, authenticationEndpoint, accesstokenEndpoint, authorizationServer, kid, _ENCRYPTIONKEY, _authConfig, Database) {
-    _platformName.set(this, {
+    _classPrivateFieldInitSpec(this, _platformName, {
       writable: true,
       value: void 0
     });
 
-    _platformUrl.set(this, {
+    _classPrivateFieldInitSpec(this, _platformUrl, {
       writable: true,
       value: void 0
     });
 
-    _clientId.set(this, {
+    _classPrivateFieldInitSpec(this, _clientId, {
       writable: true,
       value: void 0
     });
 
-    _authenticationEndpoint.set(this, {
+    _classPrivateFieldInitSpec(this, _authenticationEndpoint, {
       writable: true,
       value: void 0
     });
 
-    _authConfig2.set(this, {
+    _classPrivateFieldInitSpec(this, _authConfig2, {
       writable: true,
       value: void 0
     });
 
-    _ENCRYPTIONKEY2.set(this, {
+    _classPrivateFieldInitSpec(this, _ENCRYPTIONKEY2, {
       writable: true,
       value: void 0
     });
 
-    _accesstokenEndpoint.set(this, {
+    _classPrivateFieldInitSpec(this, _accesstokenEndpoint, {
       writable: true,
       value: void 0
     });
 
-    _authorizationServer.set(this, {
+    _classPrivateFieldInitSpec(this, _authorizationServer, {
       writable: true,
       value: void 0
     });
 
-    _kid.set(this, {
+    _classPrivateFieldInitSpec(this, _kid, {
       writable: true,
       value: void 0
     });
 
-    _Database.set(this, {
+    _classPrivateFieldInitSpec(this, _Database, {
       writable: true,
       value: void 0
     });

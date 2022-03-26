@@ -6,6 +6,10 @@ var _classPrivateFieldGet2 = _interopRequireDefault(require("@babel/runtime/help
 
 var _classPrivateFieldSet2 = _interopRequireDefault(require("@babel/runtime/helpers/classPrivateFieldSet"));
 
+function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
+
+function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
+
 /* Provider Dynamic Registration Service */
 const got = require('got');
 
@@ -80,72 +84,72 @@ var _Database = /*#__PURE__*/new WeakMap();
 
 class DynamicRegistration {
   constructor(options, routes, registerPlatform, getPlatform, ENCRYPTIONKEY, Database) {
-    _name.set(this, {
+    _classPrivateFieldInitSpec(this, _name, {
       writable: true,
       value: void 0
     });
 
-    _redirectUris.set(this, {
+    _classPrivateFieldInitSpec(this, _redirectUris, {
       writable: true,
       value: void 0
     });
 
-    _customParameters.set(this, {
+    _classPrivateFieldInitSpec(this, _customParameters, {
       writable: true,
       value: void 0
     });
 
-    _autoActivate.set(this, {
+    _classPrivateFieldInitSpec(this, _autoActivate, {
       writable: true,
       value: void 0
     });
 
-    _logo.set(this, {
+    _classPrivateFieldInitSpec(this, _logo, {
       writable: true,
       value: void 0
     });
 
-    _description.set(this, {
+    _classPrivateFieldInitSpec(this, _description, {
       writable: true,
       value: void 0
     });
 
-    _hostname.set(this, {
+    _classPrivateFieldInitSpec(this, _hostname, {
       writable: true,
       value: void 0
     });
 
-    _appUrl.set(this, {
+    _classPrivateFieldInitSpec(this, _appUrl, {
       writable: true,
       value: void 0
     });
 
-    _loginUrl.set(this, {
+    _classPrivateFieldInitSpec(this, _loginUrl, {
       writable: true,
       value: void 0
     });
 
-    _keysetUrl.set(this, {
+    _classPrivateFieldInitSpec(this, _keysetUrl, {
       writable: true,
       value: void 0
     });
 
-    _getPlatform.set(this, {
+    _classPrivateFieldInitSpec(this, _getPlatform, {
       writable: true,
       value: void 0
     });
 
-    _registerPlatform.set(this, {
+    _classPrivateFieldInitSpec(this, _registerPlatform, {
       writable: true,
       value: void 0
     });
 
-    _ENCRYPTIONKEY.set(this, {
+    _classPrivateFieldInitSpec(this, _ENCRYPTIONKEY, {
       writable: true,
       value: ''
     });
 
-    _Database.set(this, {
+    _classPrivateFieldInitSpec(this, _Database, {
       writable: true,
       value: void 0
     });
@@ -235,7 +239,12 @@ class DynamicRegistration {
       active: (0, _classPrivateFieldGet2.default)(this, _autoActivate)
     }); // Returing message indicating the end of registration flow
 
-    return '<script>(window.opener || window.parent).postMessage({subject:"org.imsglobal.lti.close"}, "*");</script>';
+    return {
+      script: '<script>(window.opener || window.parent).postMessage({subject:"org.imsglobal.lti.close"}, "*");</script>',
+      clientId: registrationResponse.client_id,
+      issuer: configuration.issuer,
+      platformName: platformName
+    };
   }
 
 }

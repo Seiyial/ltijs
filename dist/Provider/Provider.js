@@ -8,9 +8,13 @@ var _classPrivateFieldSet2 = _interopRequireDefault(require("@babel/runtime/help
 
 var _classPrivateFieldGet2 = _interopRequireDefault(require("@babel/runtime/helpers/classPrivateFieldGet"));
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
+
+function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
 
 /* eslint-disable require-atomic-updates */
 
@@ -95,52 +99,52 @@ var _server = /*#__PURE__*/new WeakMap();
 
 class Provider {
   constructor() {
-    _loginRoute.set(this, {
+    _classPrivateFieldInitSpec(this, _loginRoute, {
       writable: true,
       value: '/login'
     });
 
-    _appRoute.set(this, {
+    _classPrivateFieldInitSpec(this, _appRoute, {
       writable: true,
       value: '/'
     });
 
-    _keysetRoute.set(this, {
+    _classPrivateFieldInitSpec(this, _keysetRoute, {
       writable: true,
       value: '/keys'
     });
 
-    _dynRegRoute.set(this, {
+    _classPrivateFieldInitSpec(this, _dynRegRoute, {
       writable: true,
       value: '/register'
     });
 
-    _whitelistedRoutes.set(this, {
+    _classPrivateFieldInitSpec(this, _whitelistedRoutes, {
       writable: true,
       value: []
     });
 
-    _ENCRYPTIONKEY2.set(this, {
+    _classPrivateFieldInitSpec(this, _ENCRYPTIONKEY2, {
       writable: true,
       value: void 0
     });
 
-    _devMode.set(this, {
+    _classPrivateFieldInitSpec(this, _devMode, {
       writable: true,
       value: false
     });
 
-    _ltiaas.set(this, {
+    _classPrivateFieldInitSpec(this, _ltiaas, {
       writable: true,
       value: false
     });
 
-    _tokenMaxAge.set(this, {
+    _classPrivateFieldInitSpec(this, _tokenMaxAge, {
       writable: true,
       value: 10
     });
 
-    _cookieOptions.set(this, {
+    _classPrivateFieldInitSpec(this, _cookieOptions, {
       writable: true,
       value: {
         secure: false,
@@ -149,26 +153,26 @@ class Provider {
       }
     });
 
-    _setup.set(this, {
+    _classPrivateFieldInitSpec(this, _setup, {
       writable: true,
       value: false
     });
 
-    _connectCallback2.set(this, {
+    _classPrivateFieldInitSpec(this, _connectCallback2, {
       writable: true,
       value: async (token, req, res, next) => {
         return next();
       }
     });
 
-    _deepLinkingCallback2.set(this, {
+    _classPrivateFieldInitSpec(this, _deepLinkingCallback2, {
       writable: true,
       value: async (token, req, res, next) => {
         return next();
       }
     });
 
-    _dynamicRegistrationCallback2.set(this, {
+    _classPrivateFieldInitSpec(this, _dynamicRegistrationCallback2, {
       writable: true,
       value: async (req, res, next) => {
         try {
@@ -202,21 +206,21 @@ class Provider {
       }
     });
 
-    _sessionTimeoutCallback2.set(this, {
+    _classPrivateFieldInitSpec(this, _sessionTimeoutCallback2, {
       writable: true,
       value: async (req, res) => {
         return res.status(401).send(res.locals.err);
       }
     });
 
-    _invalidTokenCallback2.set(this, {
+    _classPrivateFieldInitSpec(this, _invalidTokenCallback2, {
       writable: true,
       value: async (req, res) => {
         return res.status(401).send(res.locals.err);
       }
     });
 
-    _unregisteredPlatformCallback2.set(this, {
+    _classPrivateFieldInitSpec(this, _unregisteredPlatformCallback2, {
       writable: true,
       value: async (req, res) => {
         return res.status(400).send({
@@ -229,7 +233,7 @@ class Provider {
       }
     });
 
-    _inactivePlatformCallback2.set(this, {
+    _classPrivateFieldInitSpec(this, _inactivePlatformCallback2, {
       writable: true,
       value: async (req, res) => {
         return res.status(401).send({
@@ -242,7 +246,7 @@ class Provider {
       }
     });
 
-    _keyset.set(this, {
+    _classPrivateFieldInitSpec(this, _keyset, {
       writable: true,
       value: async (req, res) => {
         try {
@@ -261,7 +265,7 @@ class Provider {
       }
     });
 
-    _server.set(this, {
+    _classPrivateFieldInitSpec(this, _server, {
       writable: true,
       value: void 0
     });
