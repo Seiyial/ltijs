@@ -8,6 +8,7 @@ const provDynamicRegistrationDebug = require('debug')('provider:dynamicRegistrat
 // Helper method to build URLs
 const buildUrl = (url, path) => {
   if (path === '/') return url
+  if (path.startsWith('http://') || path.startsWith('https://')) return path
   const pathParts = _url.parse(url)
   const portMatch = pathParts.pathname.match(/:[0-9]*/)
   if (portMatch) {

@@ -22,6 +22,7 @@ const provDynamicRegistrationDebug = require('debug')('provider:dynamicRegistrat
 
 const buildUrl = (url, path) => {
   if (path === '/') return url;
+  if (path.startsWith('http://') || path.startsWith('https://')) return path;
 
   const pathParts = _url.parse(url);
 
